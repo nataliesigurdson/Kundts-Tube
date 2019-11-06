@@ -1,0 +1,32 @@
+<MainScreen>:
+    name: 'main'
+    FloatLayout:
+        size_hint: None, None
+
+	##################
+	##### BUTTONS ####
+    ##################
+
+	# Quit button
+        Button:
+            text: 'X'
+            font_size: 23
+            size_hint: None, None
+            size: root.width * 0.015, root.width * 0.015
+            x: root.width * 0.965
+            y: root.height * 0.945
+            background_color: 0.7, 0.7, 0.7, 1
+            on_release: root.quit()
+
+        DPEAButton:
+            id: auto
+            color: 0.917, 0.796, 0.380, 1
+            text: "Start"
+            center_x: root.width * 0.5
+            y: root.height * 0.55
+            background_color: 1, 0, 0, 0
+            background_normal: ''
+            size_hint: None,None
+            size: 300,100
+            on_press: root.test_sticking()
+            #on_release: root.resetColors()
