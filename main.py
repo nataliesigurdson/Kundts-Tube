@@ -76,11 +76,12 @@ class MainScreen(Screen):
     # if s0.get_position_in_units > 3.0 & s0.get_position_in_units < 112.0:
     def test_sticking(self):
         s0.get_position_in_units()
-        x = s0.get_position_in_units
+        x = s0.get_position_in_units()
         if x > 3.0:
             if x < 112.0:
                 self.wiggle()
-
+        if s1.home(1):
+            s1.start_relative_move(-3)
         s0.home(1)
         s0.go_to_position(-28)
         self.wiggle()
@@ -97,6 +98,16 @@ class MainScreen(Screen):
         s0.go_to_position(-28)
         self.wiggle()
         s0.home(1)
+
+    def reset(self):
+        x = s0.get_position_in_units()
+        s1.home(1)
+        s1.start_relative_move(-3)
+        if x > 3.0:
+            if x < 112.0:
+                self.wiggle()
+        s0.home(1)
+        s1.home(1)
 
 
 
